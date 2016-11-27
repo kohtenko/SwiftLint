@@ -21,6 +21,10 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
     registry.main(defaultVerb: LintCommand().verb) { error in
         queuedPrintError(String(error))
     }
+
+//    registry.main(defaultVerb: AutoCorrectCommand().verb) { error in
+//        queuedPrintError(String(error))
+//    }
 }
 
 dispatch_main()

@@ -18,8 +18,8 @@ struct AutoCorrectCommand: CommandType {
 
     func run(options: AutoCorrectOptions) -> Result<(), CommandantError<()>> {
         let configuration = Configuration(commandLinePath: options.configurationFile,
-            rootPath: options.path, quiet: options.quiet)
-        return configuration.visitLintableFiles(options.path, action: "Correcting",
+            rootPath: "/Users/olegkokhtenko/Documents/SwiftLint/Carthage/Checkouts/SourceKitten/Tests/SourceKittenFramework/Fixtures", quiet: options.quiet)
+        return configuration.visitLintableFiles("/Users/olegkokhtenko/Documents/SwiftLint/Carthage/Checkouts/SourceKitten/Tests/SourceKittenFramework/Fixtures", action: "Correcting",
             quiet: options.quiet, useScriptInputFiles: options.useScriptInputFiles) { linter in
             let corrections = linter.correct()
             if !corrections.isEmpty && !options.quiet {

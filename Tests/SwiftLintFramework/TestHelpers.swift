@@ -90,7 +90,7 @@ extension String {
 }
 
 private func makeConfig(ruleConfiguration: AnyObject?, _ identifier: String) -> Configuration? {
-    if let ruleConfiguration = ruleConfiguration, ruleType = masterRuleList.list[identifier] {
+    if let ruleConfiguration = ruleConfiguration, let ruleType = masterRuleList.list[identifier] {
         // The caller has provided a custom configuration for the rule under test
         return (try? ruleType.init(configuration: ruleConfiguration)).flatMap { configuredRule in
             return Configuration(whitelistRules: [identifier], configuredRules: [configuredRule])

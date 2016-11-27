@@ -32,11 +32,11 @@ struct LintCommand: CommandType {
         var ruleTimes = [(id: String, time: Double)]()
         var violations = [StyleViolation]()
         let configuration = Configuration(commandLinePath: options.configurationFile,
-                                          rootPath: options.path, quiet: options.quiet)
+                                          rootPath: "/Users/olegkokhtenko/Documents/SwiftLint/Carthage/Checkouts/SourceKitten/Tests/SourceKittenFramework/Fixtures", quiet: options.quiet)
         let reporter = reporterFromString(
             options.reporter.isEmpty ? configuration.reporter : options.reporter
         )
-        return configuration.visitLintableFiles(options.path, action: "Linting",
+        return configuration.visitLintableFiles("/Users/olegkokhtenko/Documents/SwiftLint/Carthage/Checkouts/SourceKitten/Tests/SourceKittenFramework/Fixtures", action: "Linting",
             useSTDIN: options.useSTDIN, quiet: options.quiet,
             useScriptInputFiles: options.useScriptInputFiles) { linter in
             let start: NSDate! = options.benchmark ? NSDate() : nil
